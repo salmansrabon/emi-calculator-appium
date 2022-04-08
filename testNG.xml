@@ -1,0 +1,8 @@
+<suite thread-count="1" verbose="1" name="EMI Calculation">
+    <test name="EMI Calculation">
+        <classes>
+            <class name="TestRunner"/>
+        </classes>
+    </test>
+
+</suite>

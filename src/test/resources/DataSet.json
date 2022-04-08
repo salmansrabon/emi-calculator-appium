@@ -1,0 +1,52 @@
+[
+  {
+    "loan": 100000,
+    "interest": 9.0,
+    "period": 2,
+    "pFee": 2.0,
+    "mEMI": 4568,
+    "tInterest": 9643,
+    "tpFee": 2000,
+    "tPayment": 109643
+  },
+  {
+    "loan": 325000,
+    "interest": 9.5,
+    "period": 5,
+    "pFee": 1.5,
+    "mEMI": 6826,
+    "tInterest": 84536,
+    "tpFee": 4875,
+    "tPayment": 409536
+  },
+  {
+    "loan": 450000,
+    "interest": 11.0,
+    "period": 7,
+    "pFee": 1.8,
+    "mEMI": 7705,
+    "tInterest": 197228,
+    "tpFee": 8100,
+    "tPayment": 647228
+  },
+  {
+    "loan": 99000000,
+    "interest": 10.0,
+    "period": 4,
+    "pFee": 1.25,
+    "mEMI": 2510896,
+    "tInterest": 21522996,
+    "tpFee": 1237500,
+    "tPayment": 120522996
+  },
+  {
+    "loan": 50000,
+    "interest": 12.0,
+    "period": 9,
+    "pFee": 2.2,
+    "mEMI": 759,
+    "tInterest": 31995,
+    "tpFee": 1100,
+    "tPayment": 81994
+  }
+]
