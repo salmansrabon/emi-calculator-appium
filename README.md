@@ -16,6 +16,7 @@
 ### Prerequisites: 
 - JDK 8 or higher
 - Configure GRADLE_HOME and set allure path
+- Start Appium server
 ### Steps to run:
 - clone the repo
 - give this command in root directory
