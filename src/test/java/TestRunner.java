@@ -6,32 +6,30 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 
 public class TestRunner extends Setup {
-    @Test
-    public void RunTest() throws InterruptedException, IOException, ParseException {
-        Utils utils=new Utils();
+    @Test(priority = 1)
+    public void clickEMIScreen(){
         TestCase testCase=new TestCase(driver);
         WebDriverWait wait=new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.elementToBeClickable(testCase.emiScreen));
         testCase.emiScreen.click();
-        for(int i=0;i<utils.getDataSize();i++){
-            utils.readData(i);
-            testCase.calculateEMI(utils.getLoan(),utils.getInterest(),utils.getPeriod(), utils.getpFee());
+    }
+    @Test(priority = 2, dataProvider = "data-provider", dataProviderClass = Dataset.class)
+    public void RunTest(int loanAmount, double rInterest, int period, double pFee, int mEMI, int tInterest, int tpFee, int tPayment) throws InterruptedException, IOException, ParseException {
+        TestCase testCase=new TestCase(driver);
+        testCase.calculateEMI(loanAmount,rInterest,period,pFee);
 
-            String emi=testCase.mEMI.getText();
-            String interest=testCase.tInterest.getText();
-            String processingFee=testCase.tpFee.getText();
-            String totalPayment=testCase.tPayment.getText();
+        String emi=testCase.mEMI.getText();
+        String interest=testCase.tInterest.getText();
+        String processingFee=testCase.tpFee.getText();
+        String totalPayment=testCase.tPayment.getText();
 
-            Assert.assertEquals(Integer.parseInt(String.valueOf(Math.round (Float.parseFloat(emi.replace(",",""))))) ,utils.getmEMI());
-            Assert.assertEquals(Integer.parseInt(String.valueOf(Math.round (Float.parseFloat(interest.replace(",",""))))) ,utils.gettInterest());
-            Assert.assertEquals(Integer.parseInt(String.valueOf(Math.round (Float.parseFloat(processingFee.replace(",",""))))) ,utils.getTpFee());
-            Assert.assertEquals(Integer.parseInt(totalPayment.replace(",","").split("\\.")[0]) ,utils.gettPayment());
+        Assert.assertEquals(Integer.parseInt(String.valueOf(Math.round (Float.parseFloat(emi.replace(",",""))))) ,mEMI);
+        Assert.assertEquals(Integer.parseInt(String.valueOf(Math.round (Float.parseFloat(interest.replace(",",""))))) ,tInterest);
+        Assert.assertEquals(Integer.parseInt(String.valueOf(Math.round (Float.parseFloat(processingFee.replace(",",""))))) ,tpFee);
+        Assert.assertEquals(Integer.parseInt(totalPayment.replace(",","").split("\\.")[0]) ,tPayment);
 
-            testCase.btnReset.click();
-        }
-
+        testCase.btnReset.click();
 
     }
-
 
 }
