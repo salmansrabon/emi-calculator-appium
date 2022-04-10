@@ -23,10 +23,10 @@ public class TestRunner extends Setup {
         String processingFee=testCase.tpFee.getText();
         String totalPayment=testCase.tPayment.getText();
 
-        Assert.assertEquals(Integer.parseInt(String.valueOf(Math.round (Float.parseFloat(emi.replace(",",""))))) ,mEMI);
-        Assert.assertEquals(Integer.parseInt(String.valueOf(Math.round (Float.parseFloat(interest.replace(",",""))))) ,tInterest);
-        Assert.assertEquals(Integer.parseInt(String.valueOf(Math.round (Float.parseFloat(processingFee.replace(",",""))))) ,tpFee);
-        Assert.assertEquals(Integer.parseInt(totalPayment.replace(",","").split("\\.")[0]) ,tPayment);
+        Assert.assertEquals(Integer.parseInt(String.valueOf(Math.round (Double.parseDouble(emi.replace(",",""))))) ,mEMI);
+        Assert.assertEquals(Integer.parseInt(String.valueOf(Math.round (Double.parseDouble(interest.replace(",",""))))) ,tInterest);
+        Assert.assertEquals(Integer.parseInt(String.valueOf(Math.round (Double.parseDouble(processingFee.replace(",",""))))) ,tpFee);
+        Assert.assertEquals(Integer.parseInt(String.valueOf(Math.round(Double.parseDouble(totalPayment.replace(",",""))))) ,tPayment);
 
         testCase.btnReset.click();
 
