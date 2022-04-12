@@ -22,7 +22,9 @@
 - give this command in root directory
   ``` gradle clean test ```
 - To generate report hit this command
+
   ``` allure generate allure-results --clean -o allure-report ```
+  
   ``` allure serve allure-results ```
   
 ## Report
