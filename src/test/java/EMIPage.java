@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
-public class TestCase {
+public class EMIPage {
     @FindBy(id = "com.continuum.emi.calculator:id/btnStart")
     MobileElement emiScreen;
     @FindBy(id="com.continuum.emi.calculator:id/etLoanAmount")
@@ -31,7 +31,7 @@ public class TestCase {
     MobileElement tPayment;
 
 
-    public TestCase(AndroidDriver driver) {
+    public EMIPage(AndroidDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 

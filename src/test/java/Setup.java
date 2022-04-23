@@ -13,9 +13,6 @@ public class Setup {
     @BeforeTest
     public AndroidDriver setUp() throws InterruptedException, MalformedURLException {
         DesiredCapabilities cap = new DesiredCapabilities();
-        cap.setCapability("deviceName", "My Device");
-        cap.setCapability("platformName", "Android");
-        cap.setCapability("uuid", "672125e00305");
         cap.setCapability("appPackage", "com.continuum.emi.calculator");
         cap.setCapability("appActivity", "com.finance.emicalci.activity.Splash_screnn");
         cap.setCapability(AndroidMobileCapabilityType.AUTO_GRANT_PERMISSIONS,"true");

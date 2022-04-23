@@ -2,20 +2,19 @@ import org.json.simple.parser.ParseException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import java.io.IOException;
 
-public class TestRunner extends Setup {
-    @Test(priority = 1)
+public class EMITestRunner extends Setup {
+    @BeforeTest
     public void clickEMIScreen(){
-        TestCase testCase=new TestCase(driver);
-        WebDriverWait wait=new WebDriverWait(driver,10);
-        wait.until(ExpectedConditions.elementToBeClickable(testCase.emiScreen));
+        EMIPage testCase=new EMIPage(driver);
         testCase.emiScreen.click();
     }
-    @Test(priority = 2, dataProvider = "data-provider", dataProviderClass = Dataset.class)
+    @Test(dataProvider = "data-provider", dataProviderClass = Dataset.class)
     public void RunTest(int loanAmount, double rInterest, int period, double pFee, int mEMI, int tInterest, int tpFee, int tPayment) throws InterruptedException, IOException, ParseException {
-        TestCase testCase=new TestCase(driver);
+        EMIPage testCase=new EMIPage(driver);
         testCase.calculateEMI(loanAmount,rInterest,period,pFee);
 
         String emi=testCase.mEMI.getText();
