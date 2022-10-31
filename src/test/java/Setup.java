@@ -15,6 +15,7 @@ public class Setup {
         DesiredCapabilities cap = new DesiredCapabilities();
         cap.setCapability("appPackage", "com.continuum.emi.calculator");
         cap.setCapability("appActivity", "com.finance.emicalci.activity.Splash_screnn");
+        cap.setCapability("app",System.getProperty("user.dir")+"/src/test/resources/emicalc.apk" );
         cap.setCapability(AndroidMobileCapabilityType.AUTO_GRANT_PERMISSIONS,"true");
         URL url=new URL("http://127.0.0.1:4723/wd/hub");
         driver=new AndroidDriver(url,cap);
